@@ -42,20 +42,11 @@ public class EnseignantEntity implements Serializable {
 
   private String ville;
 
-  //bi-directional many-to-one association to ElementConstitutif
-  @OneToMany(mappedBy="enseignant")
-  @JsonIgnore
-  private List<ElementConstitutifEntity> elementConstitutifs;
-
   //bi-directional many-to-one association to Promotion
   @OneToMany(mappedBy="enseignant")
   @JsonIgnore
   private List<PromotionEntity> promotions;
 
-  //bi-directional many-to-one association to UniteEnseignement
-  @OneToMany(mappedBy="enseignant")
-  @JsonIgnore
-  private List<UniteEnseignementEntity> uniteEnseignements;
 
   public EnseignantEntity() {
   }
@@ -164,27 +155,6 @@ public class EnseignantEntity implements Serializable {
     this.ville = ville;
   }
 
-  public List<ElementConstitutifEntity> getElementConstitutifs() {
-    return this.elementConstitutifs;
-  }
-
-  public void setElementConstitutifs(List<ElementConstitutifEntity> elementConstitutifs) {
-    this.elementConstitutifs = elementConstitutifs;
-  }
-
-  public ElementConstitutifEntity addElementConstitutif(ElementConstitutifEntity elementConstitutif) {
-    getElementConstitutifs().add(elementConstitutif);
-    elementConstitutif.setEnseignant(this);
-
-    return elementConstitutif;
-  }
-
-  public ElementConstitutifEntity removeElementConstitutif(ElementConstitutifEntity elementConstitutif) {
-    getElementConstitutifs().remove(elementConstitutif);
-    elementConstitutif.setEnseignant(null);
-
-    return elementConstitutif;
-  }
 
   public List<PromotionEntity> getPromotions() {
     return this.promotions;
@@ -208,27 +178,7 @@ public class EnseignantEntity implements Serializable {
     return promotion;
   }
 
-  public List<UniteEnseignementEntity> getUniteEnseignements() {
-    return this.uniteEnseignements;
-  }
 
-  public void setUniteEnseignements(List<UniteEnseignementEntity> uniteEnseignements) {
-    this.uniteEnseignements = uniteEnseignements;
-  }
-
-  public UniteEnseignementEntity addUniteEnseignement(UniteEnseignementEntity uniteEnseignement) {
-    getUniteEnseignements().add(uniteEnseignement);
-    uniteEnseignement.setEnseignant(this);
-
-    return uniteEnseignement;
-  }
-
-  public UniteEnseignementEntity removeUniteEnseignement(UniteEnseignementEntity uniteEnseignement) {
-    getUniteEnseignements().remove(uniteEnseignement);
-    uniteEnseignement.setEnseignant(null);
-
-    return uniteEnseignement;
-  }
 
 
 }

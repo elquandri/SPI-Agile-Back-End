@@ -95,7 +95,7 @@
               <version>1.2.0.Final</version>
             </path>
           </annotationProcessorPaths>
-          <mainClass>com.example.projetagile</mainClass>
+          <mainClass>com.example.projetagile.ProjetagileApplication</mainClass>
         </configuration>
         <executions>
         </executions>

@@ -46,10 +46,7 @@ public class PromotionEntity implements Serializable {
   @JsonIgnore
   private List<CandidatEntity> candidats;
 
-  //bi-directional many-to-one association to Etudiant
-  @OneToMany(mappedBy="promotion")
-  @JsonIgnore
-  private List<EtudiantEntity> etudiants;
+
 
   //bi-directional many-to-one association to Enseignant
   @ManyToOne
@@ -154,27 +151,8 @@ public class PromotionEntity implements Serializable {
     return candidat;
   }
 
-  public List<EtudiantEntity> getEtudiants() {
-    return this.etudiants;
-  }
 
-  public void setEtudiants(List<EtudiantEntity> etudiants) {
-    this.etudiants = etudiants;
-  }
 
-  public EtudiantEntity addEtudiant(EtudiantEntity etudiant) {
-    getEtudiants().add(etudiant);
-    etudiant.setPromotion(this);
-
-    return etudiant;
-  }
-
-  public EtudiantEntity removeEtudiant(EtudiantEntity etudiant) {
-    getEtudiants().remove(etudiant);
-    etudiant.setPromotion(null);
-
-    return etudiant;
-  }
 
   public EnseignantEntity getEnseignant() {
     return this.enseignant;
